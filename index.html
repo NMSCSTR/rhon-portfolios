@@ -9,7 +9,7 @@
     <!-- Google Fonts (Poppins) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- AOS (Animate On Scroll) CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- FontAwesome Icons -->
@@ -36,69 +36,70 @@
         }
     </script>
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased font-sans pt-16">
+<body class="bg-gray-50 text-gray-800 antialiased font-sans">
 
     <!-- Navbar -->
-    <nav class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
+    <nav class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex-shrink-0">
                     <a href="#" class="text-xl font-bold text-brand-900 tracking-tight">Rhondel<span class="text-brand-600">.</span></a>
                 </div>
-                
-                <!-- Desktop Navigation Links -->
                 <div class="hidden md:flex space-x-6 font-medium text-sm">
-                    <a href="#home" class="text-gray-600 hover:text-brand-600 transition-colors py-2">Home</a>
-                    <a href="#about" class="text-gray-600 hover:text-brand-600 transition-colors py-2">About</a>
-                    <a href="#experience" class="text-gray-600 hover:text-brand-600 transition-colors py-2">Experience & Education</a>
-                    <a href="#skills" class="text-gray-600 hover:text-brand-600 transition-colors py-2">Tools & Skills</a>
-                    <a href="#projects" class="text-gray-600 hover:text-brand-600 transition-colors py-2">Live Projects</a>
+                    <a href="#home" class="text-gray-600 hover:text-brand-600 transition-colors">Home</a>
+                    <a href="#about" class="text-gray-600 hover:text-brand-600 transition-colors">About</a>
+                    <a href="#experience" class="text-gray-600 hover:text-brand-600 transition-colors">Experience & Education</a>
+                    <a href="#skills" class="text-gray-600 hover:text-brand-600 transition-colors">Tools & Skills</a>
+                    <a href="#projects" class="text-gray-600 hover:text-brand-600 transition-colors">Live Projects</a>
                 </div>
-                
                 <div class="hidden md:block">
-                    <a href="#contact" class="bg-brand-600 text-white px-5 py-2.5 rounded-lg hover:bg-brand-700 transition-all font-medium text-sm shadow-sm">Contact Me</a>
+                    <a href="#contact" class="bg-brand-600 text-white px-5 py-2 rounded-lg hover:bg-brand-700 transition-all font-medium text-sm shadow-sm">Contact Me</a>
                 </div>
-
-                <!-- Pure CSS Mobile Toggle (Zero Logic Modification Switch) -->
-                <label for="menu-toggle" class="cursor-pointer md:hidden block p-2 text-gray-600 hover:text-brand-600 focus:outline-none">
-                    <i class="fa-solid fa-bars text-xl"></i>
-                </label>
+                <!-- Mobile Menu Button -->
+                <div class="flex md:hidden">
+                    <button id="mobile-menu-btn" type="button" class="text-gray-600 hover:text-brand-600 focus:outline-none p-2 text-xl" aria-label="Toggle Menu">
+                        <i id="menu-icon" class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
             </div>
         </div>
         
-        <!-- Mobile Expandable Panel Trigger -->
-        <input type="checkbox" id="menu-toggle" class="hidden peer" />
-        <div class="peer-checked:flex hidden md:hidden flex-col bg-white border-t border-gray-100 px-4 pt-2 pb-4 space-y-2 shadow-inner transition-all duration-300">
-            <a href="#home" onclick="document.getElementById('menu-toggle').checked = false" class="block text-gray-600 hover:text-brand-600 font-medium text-sm py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors">Home</a>
-            <a href="#about" onclick="document.getElementById('menu-toggle').checked = false" class="block text-gray-600 hover:text-brand-600 font-medium text-sm py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors">About</a>
-            <a href="#experience" onclick="document.getElementById('menu-toggle').checked = false" class="block text-gray-600 hover:text-brand-600 font-medium text-sm py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors">Experience & Education</a>
-            <a href="#skills" onclick="document.getElementById('menu-toggle').checked = false" class="block text-gray-600 hover:text-brand-600 font-medium text-sm py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors">Tools & Skills</a>
-            <a href="#projects" onclick="document.getElementById('menu-toggle').checked = false" class="block text-gray-600 hover:text-brand-600 font-medium text-sm py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors">Live Projects</a>
-            <a href="#contact" onclick="document.getElementById('menu-toggle').checked = false" class="block bg-brand-600 text-white text-center font-medium text-sm py-2.5 px-3 rounded-lg hover:bg-brand-700 shadow-sm transition-all mt-2">Contact Me</a>
+        <!-- Mobile Navigation Menu Dropdown Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-white/95 backdrop-blur-md absolute top-16 left-0 w-full shadow-lg transition-all duration-300">
+            <div class="px-4 pt-4 pb-6 space-y-3 font-medium text-sm flex flex-col">
+                <a href="#home" class="mobile-nav-link text-gray-600 hover:text-brand-600 py-2 border-b border-gray-50 structural-link">Home</a>
+                <a href="#about" class="mobile-nav-link text-gray-600 hover:text-brand-600 py-2 border-b border-gray-50 structural-link">About</a>
+                <a href="#experience" class="mobile-nav-link text-gray-600 hover:text-brand-600 py-2 border-b border-gray-50 structural-link">Experience & Education</a>
+                <a href="#skills" class="mobile-nav-link text-gray-600 hover:text-brand-600 py-2 border-b border-gray-50 structural-link">Tools & Skills</a>
+                <a href="#projects" class="mobile-nav-link text-gray-600 hover:text-brand-600 py-2 border-b border-gray-50 structural-link">Live Projects</a>
+                <div class="pt-2">
+                    <a href="#contact" class="mobile-nav-link inline-block text-center w-full bg-brand-600 text-white px-5 py-2.5 rounded-lg hover:bg-brand-700 transition-all font-medium text-sm shadow-sm">Contact Me</a>
+                </div>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-12 pb-16 md:pt-24 md:pb-28 overflow-hidden bg-gradient-to-b from-brand-50 to-transparent">
+    <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-gradient-to-b from-brand-50 to-transparent">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col-reverse md:grid md:grid-cols-2 gap-12 items-center">
-                <div data-aos="fade-right" data-aos-duration="1000" class="text-center md:text-left w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right" data-aos-duration="1000">
                     <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-brand-700 uppercase bg-brand-100 rounded-full mb-4">Available for Remote Work</span>
-                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4">
-                        Technical VA & <br class="hidden sm:inline"><span class="text-brand-600">Full-Stack Developer</span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4">
+                        Technical VA & <br><span class="text-brand-600">Full-Stack Developer</span>
                     </h1>
-                    <p class="text-base sm:text-lg text-gray-600 mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
+                    <p class="text-lg text-gray-600 mb-8 max-w-lg">
                         An IT graduate and developer offering dependable technical support, website maintenance, and full-stack development assistance. I am dedicated to helping remote businesses keep their digital environments organized, secure, and running smoothly.
                     </p>
-                    <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-                        <a href="#projects" class="bg-brand-600 text-white px-6 py-3.5 rounded-xl font-semibold shadow-md hover:bg-brand-700 text-center transition-all text-sm">Explore Live Projects</a>
-                        <a href="#contact" class="bg-white border border-gray-300 text-gray-700 px-6 py-3.5 rounded-xl font-semibold shadow-sm hover:bg-gray-50 text-center transition-all text-sm">Let's Work Together</a>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#projects" class="bg-brand-600 text-white px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-brand-700 transition-all text-sm">Explore Live Projects</a>
+                        <a href="#contact" class="bg-white border border-gray-300 text-gray-700 px-6 py-3 rounded-xl font-semibold shadow-sm hover:bg-gray-50 transition-all text-sm">Let's Work Together</a>
                     </div>
                 </div>
-                <div class="flex justify-center w-full mb-4 md:mb-0" data-aos="fade-left" data-aos-duration="1000">
+                <div class="flex justify-center" data-aos="fade-left" data-aos-duration="1000">
                     <div class="relative group">
                         <div class="absolute -inset-1 bg-gradient-to-r from-brand-600 to-cyan-500 rounded-full blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
-                        <img src="profile.jpg" alt="Rhondel Pagobo" class="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 object-cover rounded-full shadow-xl border-4 border-white">
+                        <img src="profile.jpg" alt="Rhondel Pagobo" class="relative w-64 h-64 sm:w-80 sm:h-80 object-cover rounded-full shadow-xl border-4 border-white">
                     </div>
                 </div>
             </div>
@@ -106,36 +107,36 @@
     </section>
 
     <!-- Overview Section -->
-    <section id="about" class="py-16 sm:py-24 bg-white">
+    <section id="about" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-3xl mx-auto text-center mb-12" data-aos="fade-up">
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900">Core Capabilities</h2>
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Core Capabilities</h2>
                 <div class="h-1 w-12 bg-brand-600 mx-auto mt-4 rounded"></div>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                <div class="bg-gray-50 p-6 sm:p-8 rounded-2xl border border-gray-100 shadow-sm transition-all hover:shadow-md" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center mb-5 text-xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-10 h-10 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center mb-4 text-lg">
                         <i class="fa-solid fa-code"></i>
                     </div>
-                    <h3 class="text-lg font-bold mb-3 text-gray-900">Full Stack Architecture</h3>
+                    <h3 class="text-lg font-bold mb-2">Full Stack Architecture</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">
                         Experienced building backend engines with Laravel, writing raw APIs, configuring hosting services, domains, and optimizing custom web applications.
                     </p>
                 </div>
-                <div class="bg-gray-50 p-6 sm:p-8 rounded-2xl border border-gray-100 shadow-sm transition-all hover:shadow-md" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center mb-5 text-xl">
+                <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-10 h-10 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center mb-4 text-lg">
                         <i class="fa-solid fa-screwdriver-wrench"></i>
                     </div>
-                    <h3 class="text-lg font-bold mb-3 text-gray-900">Technical Administration</h3>
+                    <h3 class="text-lg font-bold mb-2">Technical Administration</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">
                         Comfortable managing relational databases, handling third-party tooling integrations, testing platform code logic, and documenting setups.
                     </p>
                 </div>
-                <div class="bg-gray-50 p-6 sm:p-8 rounded-2xl border border-gray-100 shadow-sm transition-all hover:shadow-md sm:col-span-2 lg:col-span-1" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center mb-5 text-xl">
+                <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-10 h-10 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center mb-4 text-lg">
                         <i class="fa-solid fa-wand-magic-sparkles"></i>
                     </div>
-                    <h3 class="text-lg font-bold mb-3 text-gray-900">Operations & Layout Design</h3>
+                    <h3 class="text-lg font-bold mb-2">Operations & Layout Design</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">
                         Adept at configuring workflow tasks, using AI suites for asset drafting, and designing visual marketing collateral or media layouts via Photoshop and Canva.
                     </p>
@@ -145,23 +146,23 @@
     </section>
 
     <!-- Experience & Education History Section -->
-    <section id="experience" class="py-16 sm:py-24 bg-gray-50">
+    <section id="experience" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 
                 <!-- Employment Timeline -->
                 <div data-aos="fade-right">
                     <h3 class="text-2xl font-bold text-gray-900 mb-8 flex items-center">
                         <i class="fa-solid fa-briefcase text-brand-600 mr-3 text-xl"></i> Employment History
                     </h3>
-                    <div class="space-y-8 relative before:absolute before:inset-y-0 before:left-3.5 before:w-0.5 before:bg-gray-200">
+                    <div class="space-y-8 relative before:absolute before:inset-0 before:left-3.5 before:w-0.5 before:bg-gray-200">
                         
                         <!-- Role 1 -->
                         <div class="relative pl-10">
                             <div class="absolute left-1.5 top-1.5 w-4 h-4 bg-brand-600 rounded-full border-4 border-white shadow-sm"></div>
-                            <span class="inline-block text-xs font-semibold px-2.5 py-0.5 bg-brand-100 text-brand-700 rounded-full">2022 - Present</span>
+                            <span class="text-xs font-semibold px-2.5 py-0.5 bg-brand-100 text-brand-700 rounded-full">2022 - Present</span>
                             <h4 class="text-lg font-bold text-gray-900 mt-2">Web Developer</h4>
-                            <p class="text-xs sm:text-sm font-medium text-gray-500 mb-2">Side Job / Freelance | Misamis Occidental, Philippines</p>
+                            <p class="text-sm font-medium text-gray-500 mb-2">Side Job / Freelance | Misamis Occidental, Philippines</p>
                             <p class="text-gray-600 text-sm leading-relaxed">
                                 Develops custom web applications, tailored business platforms, and responsive layout interfaces using Laravel and MySQL architectures. Integrates RESTful APIs, third-party payment channels, and SMS status systems. Manages domain mapping layouts, SSL configurations, cloud backups, and user training support.  
                             </p>
@@ -170,9 +171,9 @@
                         <!-- Role 2 -->
                         <div class="relative pl-10">
                             <div class="absolute left-1.5 top-1.5 w-4 h-4 bg-brand-600 rounded-full border-4 border-white shadow-sm"></div>
-                            <span class="inline-block text-xs font-semibold px-2.5 py-0.5 bg-gray-200 text-gray-700 rounded-full">Aug 2024 - Jun 2025</span>
+                            <span class="text-xs font-semibold px-2.5 py-0.5 bg-gray-200 text-gray-700 rounded-full">Aug 2024 - Jun 2025</span>
                             <h4 class="text-lg font-bold text-gray-900 mt-2">IT Instructor</h4>
-                            <p class="text-xs sm:text-sm font-medium text-gray-500 mb-2">NMSCST | Labuyo, Tangub City, Misamis Occidental, PH</p>
+                            <p class="text-sm font-medium text-gray-500 mb-2">NMSCST | Labuyo, Tangub City, Misamis Occidental, PH</p>
                             <p class="text-gray-600 text-sm leading-relaxed">
                                 Delivered interactive technical programming lectures and supervised hands-on database or networking laboratory systems. Developed curriculum content targeting current technology contexts (AI and cloud platforms), debugged student systems, and tracked grading evaluation metrics.
                             </p>
@@ -181,22 +182,22 @@
                         <!-- Role 3 -->
                         <div class="relative pl-10">
                             <div class="absolute left-1.5 top-1.5 w-4 h-4 bg-brand-600 rounded-full border-4 border-white shadow-sm"></div>
-                            <span class="inline-block text-xs font-semibold px-2.5 py-0.5 bg-gray-200 text-gray-700 rounded-full">Jul 2021 - Mar 2024</span>
+                            <span class="text-xs font-semibold px-2.5 py-0.5 bg-gray-200 text-gray-700 rounded-full">Jul 2021 - Mar 2024</span>
                             <h4 class="text-lg font-bold text-gray-900 mt-2">Mobile Teacher / On-Site Teaching</h4>
-                            <p class="text-xs sm:text-sm font-medium text-gray-500 mb-2">CMG-Computer Skills Training Center | Misamis Occidental, PH</p>
+                            <p class="text-sm font-medium text-gray-500 mb-2">CMG-Computer Skills Training Center | Misamis Occidental, PH</p>
                             <p class="text-gray-600 text-sm leading-relaxed">
-                                Coordinated distributed on-site IT training modules across diverse locations. Set up technical training hardware properties and instructed foundational digital operations, including productivity software layouts and basic web creation guidelines.
+                                TCoordinated distributed on-site IT training modules across diverse locations. Set up technical training hardware properties and instructed foundational digital operations, including productivity software layouts and basic web creation guidelines
                             </p>
                         </div>
 
                         <!-- Role 4 -->
                         <div class="relative pl-10">
                             <div class="absolute left-1.5 top-1.5 w-4 h-4 bg-brand-600 rounded-full border-4 border-white shadow-sm"></div>
-                            <span class="inline-block text-xs font-semibold px-2.5 py-0.5 bg-gray-200 text-gray-700 rounded-full">Feb 2021 - Mar 2021</span>
+                            <span class="text-xs font-semibold px-2.5 py-0.5 bg-gray-200 text-gray-700 rounded-full">Feb 2021 - Mar 2021</span>
                             <h4 class="text-lg font-bold text-gray-900 mt-2">Graphic Designer</h4>
-                            <p class="text-xs sm:text-sm font-medium text-gray-500 mb-2">CRT MOLAVE | Molave, Zamboanga del Sur, Philippines</p>
+                            <p class="text-sm font-medium text-gray-500 mb-2">CRT MOLAVE | Molave, Zamboanga del Sur, Philippines</p>
                             <p class="text-gray-600 text-sm leading-relaxed">
-                                Generated visual layout structures for digital marketing assets, branding templates, and social media campaigns. Configured design property rules (sizing and color definitions) for optimal final printing formats.
+                                FGenerated visual layout structures for digital marketing assets, branding templates, and social media campaigns. Configured design property rules (sizing and color definitions) for optimal final printing formats.
                             </p>
                         </div>
                     </div>
@@ -209,19 +210,19 @@
                             <i class="fa-solid fa-user-graduate text-brand-600 mr-3 text-xl"></i> Education
                         </h3>
                         <div class="space-y-6">
-                            <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm relative overflow-hidden pl-8">
+                            <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm relative overflow-hidden">
                                 <div class="absolute top-0 left-0 h-full w-1.5 bg-brand-600"></div>
-                                <span class="inline-block text-xs font-semibold px-2.5 py-0.5 bg-brand-100 text-brand-700 rounded-full">2024 - Present</span>
-                                <h4 class="text-base sm:text-lg font-bold text-gray-900 mt-2">Master of Science in Information Technology (MSIT)</h4>
-                                <p class="text-xs sm:text-sm text-gray-500 font-medium">Ongoing Graduate Studies</p>
+                                <span class="text-xs font-semibold px-2.5 py-0.5 bg-brand-100 text-brand-700 rounded-full">2024 - Present</span>
+                                <h4 class="text-lg font-bold text-gray-900 mt-2">Master of Science in Information Technology (MSIT)</h4>
+                                <p class="text-sm text-gray-500 font-medium">Ongoing Graduate Studies</p>
                                 <p class="text-gray-600 text-sm mt-1">JRMSU | Dapitan City, Philippines</p>
                             </div>
                             
-                            <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm relative overflow-hidden pl-8">
-                                <div class="absolute top-0 left-0 h-full w-1.5 bg-gray-600"></div>
-                                <span class="inline-block text-xs font-semibold px-2.5 py-0.5 bg-gray-100 text-gray-700 rounded-full">2018 - 2024</span>
-                                <h4 class="text-base sm:text-lg font-bold text-gray-900 mt-2">Bachelor of Science in Information Technology</h4>
-                                <p class="text-xs sm:text-sm text-gray-500 font-medium">Undergraduate Degree Completion</p>
+                            <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm relative overflow-hidden">
+                                <div class="absolute top-0 left-0 h-full w-1.5 bg-brand-600"></div>
+                                <span class="text-xs font-semibold px-2.5 py-0.5 bg-gray-100 text-gray-700 rounded-full">2018 - 2024</span>
+                                <h4 class="text-lg font-bold text-gray-900 mt-2">Bachelor of Science in Information Technology</h4>
+                                <p class="text-sm text-gray-500 font-medium">Undergraduate Degree Completion</p>
                                 <p class="text-gray-600 text-sm mt-1">Northwestern Mindanao State College of Science and Technology</p>
                             </div>
                         </div>
@@ -233,183 +234,175 @@
     </section>
 
     <!-- Skills & Tools Ecosystem Section -->
-    <section id="skills" class="py-16 sm:py-24 bg-white">
+    <section id="skills" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl mx-auto text-center mb-12" data-aos="fade-up">
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900">Skills & Operational Matrix</h2>
+            <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Skills & Operational Matrix</h2>
                 <div class="h-1 w-12 bg-brand-600 mx-auto mt-4 rounded"></div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
                 <!-- Tech Ops -->
-                <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 shadow-sm" data-aos="zoom-in" data-aos-delay="100">
-                    <h4 class="font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200 flex items-center justify-between">
-                        <span>Technical Web Ops</span> <i class="fa-solid fa-laptop-code text-brand-600 text-sm"></i>
-                    </h4>
-                    <ul class="space-y-2.5 text-sm text-gray-600">
-                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-600 mt-1 mr-2.5 text-xs"></i><span>Full Stack Development</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-600 mt-1 mr-2.5 text-xs"></i><span>Web Systems Support</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-600 mt-1 mr-2.5 text-xs"></i><span>Database Management</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-600 mt-1 mr-2.5 text-xs"></i><span>CMS & E-Commerce Admin</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-600 mt-1 mr-2.5 text-xs"></i><span>API Integrations</span></li>
+                <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100" data-aos="zoom-in" data-aos-delay="100">
+                    <h4 class="font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">Technical Web Ops</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i>Full Stack Development</li>
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i>Web Systems Support</li>
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i>Database Management</li>
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i>CMS & E-Commerce Admin</li>
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i>API Integrations</li>
                     </ul>
                 </div>
                 <!-- Content Creation -->
-                <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 shadow-sm" data-aos="zoom-in" data-aos-delay="200">
-                    <h4 class="font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200 flex items-center justify-between">
-                        <span>Design & Media</span> <i class="fa-solid fa-bezier-curve text-brand-600 text-sm"></i>
-                    </h4>
-                    <ul class="space-y-2.5 text-sm text-gray-600">
-                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-600 mt-1 mr-2.5 text-xs"></i><span>Graphic Assets Design</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-600 mt-1 mr-2.5 text-xs"></i><span>Photo & Video Editing</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-600 mt-1 mr-2.5 text-xs"></i><span>Social Media Optimization</span></li>
+                <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100" data-aos="zoom-in" data-aos-delay="200">
+                    <h4 class="font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">Design & Media</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i>Graphic Assets Design</li>
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i>Photo & Video Editing</li>
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i>Social Media Optimization</li>
                     </ul>
                 </div>
                 <!-- Admin Support -->
-                <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 shadow-sm" data-aos="zoom-in" data-aos-delay="300">
-                    <h4 class="font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200 flex items-center justify-between">
-                        <span>Admin Architecture</span> <i class="fa-solid fa-folder-tree text-brand-600 text-sm"></i>
-                    </h4>
-                    <ul class="space-y-2.5 text-sm text-gray-600">
-                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-600 mt-1 mr-2.5 text-xs"></i><span>Microsoft Office Processing</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-600 mt-1 mr-2.5 text-xs"></i><span>Computer Literate</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-600 mt-1 mr-2.5 text-xs"></i><span>Asset Documentation</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-600 mt-1 mr-2.5 text-xs"></i><span>Time Management</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-600 mt-1 mr-2.5 text-xs"></i><span>Task Scheduling</span></li>
+                <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100" data-aos="zoom-in" data-aos-delay="300">
+                    <h4 class="font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">Admin Architecture</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i>Microsoft Office Processing</li>
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i>Computer Literate</li>
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i>Asset Documentation</li>
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i>Time Management</li>
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i>Task Scheduling</li>
                     </ul>
                 </div>
                 <!-- Communications -->
-                <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 shadow-sm" data-aos="zoom-in" data-aos-delay="400">
-                    <h4 class="font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200 flex items-center justify-between">
-                        <span>Client Support</span> <i class="fa-solid fa-users-gear text-brand-600 text-sm"></i>
-                    </h4>
-                    <ul class="space-y-2.5 text-sm text-gray-600">
-                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-600 mt-1 mr-2.5 text-xs"></i><span>Technical Training</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-600 mt-1 mr-2.5 text-xs"></i><span>Systems Onboarding</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-600 mt-1 mr-2.5 text-xs"></i><span>Attention to Detail</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-600 mt-1 mr-2.5 text-xs"></i><span>AI Productivity Tasks</span></li>
+                <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100" data-aos="zoom-in" data-aos-delay="400">
+                    <h4 class="font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">Client Support</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i>Technical Training</li>
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i>Systems Onboarding</li>
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i>Attention to Detail</li>
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i>AI Productivity Tasks</li>
                     </ul>
                 </div>
             </div>
 
             <!-- Detailed Technical Tools Stack Grid -->
-            <div class="border border-gray-100 shadow-sm rounded-3xl p-6 sm:p-8 bg-gray-50" data-aos="fade-up">
-                <h3 class="text-lg font-bold text-gray-900 mb-6 text-center">Verified Infrastructure & Softwares Stack</h3>
+            <div class="border border-gray-100 shadow-sm rounded-3xl p-8 bg-gray-50" data-aos="fade-up">
+                <h3 class="text-xl font-bold text-gray-900 mb-6 text-center">Verified Infrastructure & Softwares Stack</h3>
                 <div class="flex flex-wrap justify-center gap-3">
-                    <span class="bg-white text-gray-800 text-xs px-4 py-2.5 rounded-xl border border-gray-200 font-medium shadow-sm flex items-center"><i class="fa-brands fa-windows text-blue-500 mr-2"></i>Microsoft Office 365</span>
-                    <span class="bg-white text-gray-800 text-xs px-4 py-2.5 rounded-xl border border-gray-200 font-medium shadow-sm flex items-center"><i class="fa-solid fa-palette text-cyan-500 mr-2"></i>Canva</span>
-                    <span class="bg-white text-gray-800 text-xs px-4 py-2.5 rounded-xl border border-gray-200 font-medium shadow-sm flex items-center"><i class="fa-solid fa-users text-purple-600 mr-2"></i>Microsoft Teams</span>
-                    <span class="bg-white text-gray-800 text-xs px-4 py-2.5 rounded-xl border border-gray-200 font-medium shadow-sm flex items-center"><i class="fa-brands fa-microsoft text-blue-400 mr-2"></i>Microsoft Azure</span>
-                    <span class="bg-white text-gray-800 text-xs px-4 py-2.5 rounded-xl border border-gray-200 font-medium shadow-sm flex items-center"><i class="fa-solid fa-code text-blue-600 mr-2"></i>Visual Studio Code</span>
-                    <span class="bg-white text-gray-800 text-xs px-4 py-2.5 rounded-xl border border-gray-200 font-medium shadow-sm flex items-center"><i class="fa-solid fa-server text-orange-500 mr-2"></i>Xampp / WampServer</span>
-                    <span class="bg-white text-gray-800 text-xs px-4 py-2.5 rounded-xl border border-gray-200 font-medium shadow-sm flex items-center"><i class="fa-solid fa-database text-blue-800 mr-2"></i>MySQL Workbench</span>
-                    <span class="bg-white text-gray-800 text-xs px-4 py-2.5 rounded-xl border border-gray-200 font-medium shadow-sm flex items-center"><i class="fa-solid fa-paper-plane text-orange-600 mr-2"></i>Postman</span>
-                    <span class="bg-white text-gray-800 text-xs px-4 py-2.5 rounded-xl border border-gray-200 font-medium shadow-sm flex items-center"><i class="fa-brands fa-github text-black mr-2"></i>Github / Git</span>
-                    <span class="bg-white text-gray-800 text-xs px-4 py-2.5 rounded-xl border border-gray-200 font-medium shadow-sm flex items-center"><i class="fa-solid fa-cubes text-amber-700 mr-2"></i>Composer</span>
-                    <span class="bg-white text-gray-800 text-xs px-4 py-2.5 rounded-xl border border-gray-200 font-medium shadow-sm flex items-center"><i class="fa-solid fa-image text-blue-400 mr-2"></i>Adobe Photoshop</span>
-                    <span class="bg-white text-gray-800 text-xs px-4 py-2.5 rounded-xl border border-gray-200 font-medium shadow-sm flex items-center"><i class="fa-brands fa-slack text-purple-500 mr-2"></i>Slack</span>
-                    <span class="bg-white text-gray-800 text-xs px-4 py-2.5 rounded-xl border border-gray-200 font-medium shadow-sm flex items-center"><i class="fa-solid fa-globe text-emerald-600 mr-2"></i>Google Site</span>
-                    <span class="bg-white text-gray-800 text-xs px-4 py-2.5 rounded-xl border border-gray-200 font-medium shadow-sm flex items-center"><i class="fa-solid fa-video text-blue-500 mr-2"></i>Zoom / Google Meet</span>
-                    <span class="bg-white text-gray-800 text-xs px-4 py-2.5 rounded-xl border border-gray-200 font-medium shadow-sm flex items-center"><i class="fa-brands fa-google text-red-500 mr-2"></i>Google Workspace</span>
-                    <span class="bg-white text-gray-800 text-xs px-4 py-2.5 rounded-xl border border-gray-200 font-medium shadow-sm flex items-center"><i class="fa-solid fa-brain text-indigo-500 mr-2"></i>Gemini / ChatGPT / Claude</span>
+                    <span class="bg-white text-gray-800 text-xs px-4 py-2 rounded-xl border border-gray-200 font-medium shadow-sm"><i class="fa-brands fa-windows text-blue-500 mr-2"></i>Microsoft Office 365</span>
+                    <span class="bg-white text-gray-800 text-xs px-4 py-2 rounded-xl border border-gray-200 font-medium shadow-sm"><i class="fa-solid fa-palette text-cyan-500 mr-2"></i>Canva</span>
+                    <span class="bg-white text-gray-800 text-xs px-4 py-2 rounded-xl border border-gray-200 font-medium shadow-sm"><i class="fa-solid fa-users text-purple-600 mr-2"></i>Microsoft Teams</span>
+                    <span class="bg-white text-gray-800 text-xs px-4 py-2 rounded-xl border border-gray-200 font-medium shadow-sm"><i class="fa-brands fa-microsoft text-blue-400 mr-2"></i>Microsoft Azure</span>
+                    <span class="bg-white text-gray-800 text-xs px-4 py-2 rounded-xl border border-gray-200 font-medium shadow-sm"><i class="fa-solid fa-code text-blue-600 mr-2"></i>Visual Studio Code</span>
+                    <span class="bg-white text-gray-800 text-xs px-4 py-2 rounded-xl border border-gray-200 font-medium shadow-sm"><i class="fa-solid fa-server text-orange-500 mr-2"></i>Xampp / WampServer</span>
+                    <span class="bg-white text-gray-800 text-xs px-4 py-2 rounded-xl border border-gray-200 font-medium shadow-sm"><i class="fa-solid fa-database text-blue-800 mr-2"></i>MySQL Workbench</span>
+                    <span class="bg-white text-gray-800 text-xs px-4 py-2 rounded-xl border border-gray-200 font-medium shadow-sm"><i class="fa-solid fa-paper-plane text-orange-600 mr-2"></i>Postman</span>
+                    <span class="bg-white text-gray-800 text-xs px-4 py-2 rounded-xl border border-gray-200 font-medium shadow-sm"><i class="fa-brands fa-github text-black mr-2"></i>Github / Git</span>
+                    <span class="bg-white text-gray-800 text-xs px-4 py-2 rounded-xl border border-gray-200 font-medium shadow-sm"><i class="fa-solid fa-cubes text-amber-700 mr-2"></i>Composer</span>
+                    <span class="bg-white text-gray-800 text-xs px-4 py-2 rounded-xl border border-gray-200 font-medium shadow-sm"><i class="fa-solid fa-image text-blue-400 mr-2"></i>Adobe Photoshop</span>
+                    <span class="bg-white text-gray-800 text-xs px-4 py-2 rounded-xl border border-gray-200 font-medium shadow-sm"><i class="fa-brands fa-slack text-purple-500 mr-2"></i>Slack</span>
+                    <span class="bg-white text-gray-800 text-xs px-4 py-2 rounded-xl border border-gray-200 font-medium shadow-sm"><i class="fa-solid fa-globe text-emerald-600 mr-2"></i>Google Site</span>
+                    <span class="bg-white text-gray-800 text-xs px-4 py-2 rounded-xl border border-gray-200 font-medium shadow-sm"><i class="fa-solid fa-video text-blue-500 mr-2"></i>Zoom / Google Meet</span>
+                    <span class="bg-white text-gray-800 text-xs px-4 py-2 rounded-xl border border-gray-200 font-medium shadow-sm"><i class="fa-brands fa-google text-red-500 mr-2"></i>Google Workspace</span>
+                    <span class="bg-white text-gray-800 text-xs px-4 py-2 rounded-xl border border-gray-200 font-medium shadow-sm"><i class="fa-solid fa-brain text-indigo-500 mr-2"></i>Gemini / ChatGPT / Claude</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-16 sm:py-24 bg-gray-50">
+    <section id="projects" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl mx-auto text-center mb-12" data-aos="fade-up">
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900">Live Deployments</h2>
-                <p class="mt-2 text-sm sm:text-base text-gray-500">Live, interactive production websites currently serving cloud environments</p>
+            <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Live Deployments</h2>
+                <p class="mt-2 text-gray-500">Live, interactive production websites currently serving cloud environments</p>
                 <div class="h-1 w-12 bg-brand-600 mx-auto mt-4 rounded"></div>
             </div>
 
             <!-- 7 Live Projects Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
                 <!-- Project 1 -->
                 <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between" data-aos="fade-up">
-                    <div class="mb-5">
+                    <div>
                         <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-globe"></i></div>
                         <h3 class="text-lg font-bold text-gray-900 mb-1">C-Familia Portal</h3>
                         <p class="text-gray-500 text-xs mb-3">Custom Deployment Stack</p>
-                        <p class="text-gray-600 text-sm leading-relaxed">A web application for a criminology training and review center, where C-Familia is more than just a place to prepare for examinations—it's a community built on support and success. The lecturers are genuinely dedicated to helping every student excel, simplifying complex criminology concepts into clear, practical lessons that are easy to understand and apply.</p>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">A web application for a criminology training and review center, where C-Familia is more than just a place to prepare for examinations—it's a community built on support and success. The lecturers are genuinely dedicated to helping every student excel, simplifying complex criminology concepts into clear, practical lessons that are easy to understand and apply.</p>
                     </div>
-                    <a href="https://c-familia.online/" target="_blank" class="text-sm font-semibold text-brand-600 hover:text-brand-700 inline-flex items-center mt-auto py-2">Visit Platform <i class="fa-solid fa-arrow-right ml-1.5 text-xs"></i></a>
+                    <a href="https://c-familia.online/" target="_blank" class="text-sm font-semibold text-brand-600 hover:text-brand-700 flex items-center">Visit Platform <i class="fa-solid fa-arrow-right ml-1.5 text-xs"></i></a>
                 </div>
 
                 <!-- Project 2 -->
                 <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
-                    <div class="mb-5">
+                    <div>
                         <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-trowel-bricks"></i></div>
                         <h3 class="text-lg font-bold text-gray-900 mb-1">SGM Construction</h3>
                         <p class="text-gray-500 text-xs mb-3">Corporate Architecture Layout</p>
-                        <p class="text-gray-600 text-sm leading-relaxed">A web application for a SGM Construction company, where SGM Construction provides high-quality residential and commercial construction services across Northern Mindanao. Committed to excellence, integrity, and superior craftsmanship, the company delivers reliable building solutions that meet the highest standards of quality and client satisfaction.</p>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">A web application for a SGM Construction company, where SGM Construction provides high-quality residential and commercial construction services across Northern Mindanao. Committed to excellence, integrity, and superior craftsmanship, the company delivers reliable building solutions that meet the highest standards of quality and client satisfaction.</p>
                     </div>
-                    <a href="http://sgm-construction.site/" target="_blank" class="text-sm font-semibold text-brand-600 hover:text-brand-700 inline-flex items-center mt-auto py-2">Visit Platform <i class="fa-solid fa-arrow-right ml-1.5 text-xs"></i></a>
+                    <a href="http://sgm-construction.site/" target="_blank" class="text-sm font-semibold text-brand-600 hover:text-brand-700 flex items-center">Visit Platform <i class="fa-solid fa-arrow-right ml-1.5 text-xs"></i></a>
                 </div>
 
                 <!-- Project 3 -->
                 <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
-                    <div class="mb-5">
+                    <div>
                         <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-church"></i></div>
                         <h3 class="text-lg font-bold text-gray-900 mb-1">Parish Church System</h3>
                         <p class="text-gray-500 text-xs mb-3">Church Services</p>
-                        <p class="text-gray-600 text-sm leading-relaxed">A web application designed for a specific church in Tangub City, Misamis Occidental, providing a centralized platform to manage and support church services. The system streamlines church operations by facilitating service schedules, event announcements, ministry coordination, member information, and other essential church activities, improving communication and administrative efficiency.</p>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">A web application designed for a specific church in Tangub City, Misamis Occidental, providing a centralized platform to manage and support church services. The system streamlines church operations by facilitating service schedules, event announcements, ministry coordination, member information, and other essential church activities, improving communication and administrative efficiency.</p>
                     </div>
-                    <a href="https://parish-chruch.online/" target="_blank" class="text-sm font-semibold text-brand-600 hover:text-brand-700 inline-flex items-center mt-auto py-2">Visit Platform <i class="fa-solid fa-arrow-right ml-1.5 text-xs"></i></a>
+                    <a href="https://parish-chruch.online/" target="_blank" class="text-sm font-semibold text-brand-600 hover:text-brand-700 flex items-center">Visit Platform <i class="fa-solid fa-arrow-right ml-1.5 text-xs"></i></a>
                 </div>
 
                 <!-- Project 4 -->
                 <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
-                    <div class="mb-5">
+                    <div>
                         <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-book-bookmark"></i></div>
                         <h3 class="text-lg font-bold text-gray-900 mb-1">LMIS Dashboard</h3>
                         <p class="text-gray-500 text-xs mb-3">Library Information System App</p>
-                        <p class="text-gray-600 text-sm leading-relaxed">This is Library Management System for St Michael National High School</p>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">This is Library Management System for St Michael National High School</p>
                     </div>
-                    <a href="https://lmis.site/" target="_blank" class="text-sm font-semibold text-brand-600 hover:text-brand-700 inline-flex items-center mt-auto py-2">Visit Platform <i class="fa-solid fa-arrow-right ml-1.5 text-xs"></i></a>
+                    <a href="https://lmis.site/" target="_blank" class="text-sm font-semibold text-brand-600 hover:text-brand-700 flex items-center">Visit Platform <i class="fa-solid fa-arrow-right ml-1.5 text-xs"></i></a>
                 </div>
 
                 <!-- Project 5 -->
                 <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="400">
-                    <div class="mb-5">
+                    <div>
                         <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-umbrella-beach"></i></div>
                         <h3 class="text-lg font-bold text-gray-900 mb-1">Mabanag Spring Resort</h3>
                         <p class="text-gray-500 text-xs mb-3">User Friendly Web App</p>
-                        <p class="text-gray-600 text-sm leading-relaxed">FA web-based reservation system for Mabanag Spring Resort, located in Mahayag, designed to simplify the booking process for guests and improve resort management. The system enables visitors to check availability, make reservations, and receive booking confirmations online, while allowing administrators to efficiently manage accommodations, reservations, customer records, and resort operations.</p>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">FA web-based reservation system for Mabanag Spring Resort, located in Mahayag, designed to simplify the booking process for guests and improve resort management. The system enables visitors to check availability, make reservations, and receive booking confirmations online, while allowing administrators to efficiently manage accommodations, reservations, customer records, and resort operations.</p>
                     </div>
-                    <a href="https://mabanag-spring-resort.site/" target="_blank" class="text-sm font-semibold text-brand-600 hover:text-brand-700 inline-flex items-center mt-auto py-2">Visit Platform <i class="fa-solid fa-arrow-right ml-1.5 text-xs"></i></a>
+                    <a href="https://mabanag-spring-resort.site/" target="_blank" class="text-sm font-semibold text-brand-600 hover:text-brand-700 flex items-center">Visit Platform <i class="fa-solid fa-arrow-right ml-1.5 text-xs"></i></a>
                 </div>
 
                 <!-- Project 6 -->
                 <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="500">
-                    <div class="mb-5">
+                    <div>
                         <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-water"></i></div>
                         <h3 class="text-lg font-bold text-gray-900 mb-1">Generalao Resort</h3>
                         <p class="text-gray-500 text-xs mb-3">Commercial Landing Interface</p>
-                        <p class="text-gray-600 text-sm leading-relaxed">A web-based reservation system for Generalao Mountain Resort, located in Lanao, same with Mabanag Web Application it is being designed to simplify the booking process for guests and improve resort management. The system enables visitors to check availability, make reservations, and receive booking confirmations online, while allowing administrators to efficiently manage accommodations, reservations, customer records, and resort operations.</p>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">A web-based reservation system for Generalao Mountain Resort, located in Lanao, same with Mabanag Web Application it is being designed to simplify the booking process for guests and improve resort management. The system enables visitors to check availability, make reservations, and receive booking confirmations online, while allowing administrators to efficiently manage accommodations, reservations, customer records, and resort operations.</p>
                     </div>
-                    <a href="https://www.generalao-resort.online/" target="_blank" class="text-sm font-semibold text-brand-600 hover:text-brand-700 inline-flex items-center mt-auto py-2">Visit Platform <i class="fa-solid fa-arrow-right ml-1.5 text-xs"></i></a>
+                    <a href="https://www.generalao-resort.online/" target="_blank" class="text-sm font-semibold text-brand-600 hover:text-brand-700 flex items-center">Visit Platform <i class="fa-solid fa-arrow-right ml-1.5 text-xs"></i></a>
                 </div>
 
                 <!-- Project 7 -->
                 <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="600">
-                    <div class="mb-5">
+                    <div>
                         <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-cat"></i></div>
                         <h3 class="text-lg font-bold text-gray-900 mb-1">Springcat Resort</h3>
                         <p class="text-gray-500 text-xs mb-3">Resort with moderna landing page desogn</p>
-                        <p class="text-gray-600 text-sm leading-relaxed">This is a accessible publicly landing page only for advertisement on a resort.</p>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">This is a accessible publicly landing page only for advertisement on a resort.</p>
                     </div>
-                    <a href="https://springcat-resort.vercel.app/" target="_blank" class="text-sm font-semibold text-brand-600 hover:text-brand-700 inline-flex items-center mt-auto py-2">Visit Platform <i class="fa-solid fa-arrow-right ml-1.5 text-xs"></i></a>
+                    <a href="https://springcat-resort.vercel.app/" target="_blank" class="text-sm font-semibold text-brand-600 hover:text-brand-700 flex items-center">Visit Platform <i class="fa-solid fa-arrow-right ml-1.5 text-xs"></i></a>
                 </div>
 
             </div>
             
             <div class="text-center mt-12" data-aos="fade-up">
-                <a href="https://github.com/NMSCSTR" target="_blank" class="inline-flex items-center justify-center w-full sm:w-auto bg-gray-900 text-white px-6 py-4 rounded-xl font-semibold shadow-sm hover:bg-gray-800 transition-all text-sm">
+                <a href="https://github.com/NMSCSTR" target="_blank" class="inline-flex items-center bg-gray-900 text-white px-6 py-3 rounded-xl font-semibold shadow-sm hover:bg-gray-800 transition-all text-sm">
                     <i class="fa-brands fa-github mr-2 text-base"></i> View GitHub Repositories
                 </a>
             </div>
@@ -417,73 +410,73 @@
     </section>
 
     <!-- Contact Form Section -->
-    <section id="contact" class="py-16 sm:py-24 bg-white">
+    <section id="contact" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl mx-auto text-center mb-12" data-aos="fade-up">
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900">Let's Streamline Your Workspace</h2>
-                <p class="mt-2 text-sm sm:text-base text-gray-500">Get in touch for specialized Technical Virtual Assistance or Full-Stack support.</p>
+            <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Let's Streamline Your Workspace</h2>
+                <p class="mt-2 text-gray-500">Get in touch for specialized Technical Virtual Assistance or Full-Stack support.</p>
                 <div class="h-1 w-12 bg-brand-600 mx-auto mt-4 rounded"></div>
             </div>
 
-            <div class="max-w-4xl mx-auto bg-gray-900 rounded-3xl shadow-xl overflow-hidden flex flex-col md:grid md:grid-cols-5" data-aos="zoom-in">
-                <div class="md:col-span-2 bg-brand-900 p-8 sm:p-12 text-white flex flex-col justify-between border-b md:border-b-0 md:border-r border-white/10 w-full">
+            <div class="max-w-4xl mx-auto bg-gray-900 rounded-3xl shadow-xl overflow-hidden grid grid-cols-1 md:grid-cols-5" data-aos="zoom-in">
+                <div class="md:col-span-2 bg-brand-900 p-8 sm:p-12 text-white flex flex-col justify-between border-b md:border-b-0 md:border-r border-white/10">
                     <div>
-                        <h3 class="text-xl sm:text-2xl font-bold mb-4">Channels</h3>
+                        <h3 class="text-2xl font-bold mb-4">Channels</h3>
                         <p class="text-brand-100 text-sm leading-relaxed mb-8">Ready to bring structured technical solutions to remote workflows.</p>
                         
-                        <div class="space-y-5">
-                            <div class="flex items-center space-x-4 overflow-hidden">
-                                <i class="fa-solid fa-envelope text-brand-100 text-base flex-shrink-0"></i>
-                                <span class="text-sm truncate">rhondelpagobo19@gmail.com</span>
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <i class="fa-solid fa-envelope text-brand-100 text-lg"></i>
+                                <span class="text-sm">rhondelpagobo19@gmail.com</span>
                             </div>
                             <div class="flex items-center space-x-4">
-                                <i class="fa-solid fa-phone text-brand-100 text-base flex-shrink-0"></i>
+                                <i class="fa-solid fa-phone text-brand-100 text-lg"></i>
                                 <span class="text-sm">09466565709</span>
                             </div>
                             <div class="flex items-center space-x-4">
-                                <i class="fa-solid fa-location-dot text-brand-100 text-base flex-shrink-0"></i>
+                                <i class="fa-solid fa-location-dot text-brand-100 text-lg"></i>
                                 <span class="text-sm">Philippines</span>
                             </div>
                         </div>
                     </div>
                     
                     <div class="flex space-x-4 mt-8">
-                        <a href="https://github.com/NMSCSTR" target="_blank" aria-label="GitHub" class="w-10 h-10 bg-white/10 hover:bg-white/20 transition-all rounded-lg flex items-center justify-center text-lg"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://web.facebook.com/itsmerhondel/" target="_blank" aria-label="Facebook" class="w-10 h-10 bg-white/10 hover:bg-white/20 transition-all rounded-lg flex items-center justify-center text-lg"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://github.com/NMSCSTR" target="_blank" class="w-10 h-10 bg-white/10 hover:bg-white/20 transition-all rounded-lg flex items-center justify-center text-lg"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://web.facebook.com/itsmerhondel/" target="_blank" class="w-10 h-10 bg-white/10 hover:bg-white/20 transition-all rounded-lg flex items-center justify-center text-lg"><i class="fa-brands fa-facebook"></i></a>
                     </div>
                 </div>
 
                 <!-- Functional Form Submission targeting your Gmail via Web3Forms API -->
-                <form class="md:col-span-3 p-8 sm:p-12 space-y-5 bg-white w-full" action="https://api.web3forms.com/submit" method="POST">
+                <form class="md:col-span-3 p-8 sm:p-12 space-y-6 bg-white" action="https://api.web3forms.com/submit" method="POST">
                     <!-- Secure Token Delivery to rhondelpagobo19@gmail.com -->
                     <input type="hidden" name="access_key" value="0970725a-4cb4-4db2-959c-7033ea339178">
                     <!-- Optional Configuration: Redirect back after submit -->
                     <input type="hidden" name="from_name" value="Portfolio Visitor">
                     <input type="hidden" name="subject" value="New Technical VA Portfolio Lead">
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Your Name</label>
-                            <input type="text" name="name" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-brand-600 focus:bg-white transition-all">
+                            <input type="text" name="name" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-600 transition-all">
                         </div>
                         <div>
                             <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Email Address</label>
-                            <input type="email" name="email" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-brand-600 focus:bg-white transition-all">
+                            <input type="email" name="email" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-600 transition-all">
                         </div>
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Subject Context</label>
-                        <input type="text" name="custom_subject" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-brand-600 focus:bg-white transition-all">
+                        <input type="text" name="custom_subject" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-600 transition-all">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Message Description</label>
-                        <textarea rows="4" name="message" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-brand-600 focus:bg-white transition-all resize-none"></textarea>
+                        <textarea rows="4" name="message" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-600 transition-all resize-none"></textarea>
                     </div>
                     
                     <!-- HoneyPot Anti-Spam protection field hidden from view -->
                     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-                    <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold py-4 px-6 rounded-xl transition-all shadow-md text-sm cursor-pointer">Send Secure Message</button>
+                    <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 px-6 rounded-xl transition-all shadow-md text-sm">Send Secure Message</button>
                 </form>
             </div>
         </div>
@@ -501,7 +494,35 @@
     <script>
         AOS.init({
             once: true,
-            offset: 60
+            offset: 100
+        });
+
+        // Mobile Responsive Navbar Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+
+        // Automatically hide mobile layout drawer upon target click selection
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
         });
     </script>
 </body>
