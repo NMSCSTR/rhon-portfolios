@@ -4,15 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rhondel Pagobo | Technical VA & Full-Stack Developer</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts (Poppins) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- AOS (Animate On Scroll) CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <script>
@@ -38,7 +34,6 @@
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased font-sans">
 
-    <!-- Navbar -->
     <nav class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
@@ -55,7 +50,6 @@
                 <div class="hidden md:block">
                     <a href="#contact" class="bg-brand-600 text-white px-5 py-2 rounded-lg hover:bg-brand-700 transition-all font-medium text-sm shadow-sm">Contact Me</a>
                 </div>
-                <!-- Mobile Menu Button -->
                 <div class="flex md:hidden">
                     <button id="mobile-menu-btn" type="button" class="text-gray-600 hover:text-brand-600 focus:outline-none p-2 text-xl" aria-label="Toggle Menu">
                         <i id="menu-icon" class="fa-solid fa-bars"></i>
@@ -64,7 +58,6 @@
             </div>
         </div>
         
-        <!-- Mobile Navigation Menu Dropdown Overlay -->
         <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-white/95 backdrop-blur-md absolute top-16 left-0 w-full shadow-lg transition-all duration-300">
             <div class="px-4 pt-4 pb-6 space-y-3 font-medium text-sm flex flex-col">
                 <a href="#home" class="mobile-nav-link text-gray-600 hover:text-brand-600 py-2 border-b border-gray-50 structural-link">Home</a>
@@ -79,7 +72,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-gradient-to-b from-brand-50 to-transparent">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -93,6 +85,9 @@
                     </p>
                     <div class="flex flex-wrap gap-4">
                         <a href="#projects" class="bg-brand-600 text-white px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-brand-700 transition-all text-sm">Explore Live Projects</a>
+                        <button id="view-cv-btn" class="bg-white border border-gray-300 text-gray-700 px-6 py-3 rounded-xl font-semibold shadow-sm hover:bg-gray-50 transition-all text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-file-pdf text-red-500"></i> View CV
+                        </button>
                         <a href="#contact" class="bg-white border border-gray-300 text-gray-700 px-6 py-3 rounded-xl font-semibold shadow-sm hover:bg-gray-50 transition-all text-sm">Let's Work Together</a>
                     </div>
                 </div>
@@ -106,7 +101,6 @@
         </div>
     </section>
 
-    <!-- Overview Section -->
     <section id="about" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-3xl mx-auto text-center mb-12" data-aos="fade-up">
@@ -145,19 +139,16 @@
         </div>
     </section>
 
-    <!-- Experience & Education History Section -->
     <section id="experience" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 
-                <!-- Employment Timeline -->
                 <div data-aos="fade-right">
                     <h3 class="text-2xl font-bold text-gray-900 mb-8 flex items-center">
                         <i class="fa-solid fa-briefcase text-brand-600 mr-3 text-xl"></i> Employment History
                     </h3>
                     <div class="space-y-8 relative before:absolute before:inset-0 before:left-3.5 before:w-0.5 before:bg-gray-200">
                         
-                        <!-- Role 1 -->
                         <div class="relative pl-10">
                             <div class="absolute left-1.5 top-1.5 w-4 h-4 bg-brand-600 rounded-full border-4 border-white shadow-sm"></div>
                             <span class="text-xs font-semibold px-2.5 py-0.5 bg-brand-100 text-brand-700 rounded-full">2022 - Present</span>
@@ -168,7 +159,6 @@
                             </p>
                         </div>
 
-                        <!-- Role 2 -->
                         <div class="relative pl-10">
                             <div class="absolute left-1.5 top-1.5 w-4 h-4 bg-brand-600 rounded-full border-4 border-white shadow-sm"></div>
                             <span class="text-xs font-semibold px-2.5 py-0.5 bg-gray-200 text-gray-700 rounded-full">Aug 2024 - Jun 2025</span>
@@ -179,7 +169,6 @@
                             </p>
                         </div>
 
-                        <!-- Role 3 -->
                         <div class="relative pl-10">
                             <div class="absolute left-1.5 top-1.5 w-4 h-4 bg-brand-600 rounded-full border-4 border-white shadow-sm"></div>
                             <span class="text-xs font-semibold px-2.5 py-0.5 bg-gray-200 text-gray-700 rounded-full">Jul 2021 - Mar 2024</span>
@@ -190,7 +179,6 @@
                             </p>
                         </div>
 
-                        <!-- Role 4 -->
                         <div class="relative pl-10">
                             <div class="absolute left-1.5 top-1.5 w-4 h-4 bg-brand-600 rounded-full border-4 border-white shadow-sm"></div>
                             <span class="text-xs font-semibold px-2.5 py-0.5 bg-gray-200 text-gray-700 rounded-full">Feb 2021 - Mar 2021</span>
@@ -203,7 +191,6 @@
                     </div>
                 </div>
 
-                <!-- Education Timeline -->
                 <div data-aos="fade-left" class="space-y-12">
                     <div>
                         <h3 class="text-2xl font-bold text-gray-900 mb-8 flex items-center">
@@ -233,7 +220,6 @@
         </div>
     </section>
 
-    <!-- Skills & Tools Ecosystem Section -->
     <section id="skills" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
@@ -242,7 +228,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-                <!-- Tech Ops -->
                 <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100" data-aos="zoom-in" data-aos-delay="100">
                     <h4 class="font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">Technical Web Ops</h4>
                     <ul class="space-y-2 text-sm text-gray-600">
@@ -253,7 +238,6 @@
                         <li><i class="fa-solid fa-check text-brand-600 mr-2"></i>API Integrations</li>
                     </ul>
                 </div>
-                <!-- Content Creation -->
                 <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100" data-aos="zoom-in" data-aos-delay="200">
                     <h4 class="font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">Design & Media</h4>
                     <ul class="space-y-2 text-sm text-gray-600">
@@ -262,7 +246,6 @@
                         <li><i class="fa-solid fa-check text-brand-600 mr-2"></i>Social Media Optimization</li>
                     </ul>
                 </div>
-                <!-- Admin Support -->
                 <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100" data-aos="zoom-in" data-aos-delay="300">
                     <h4 class="font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">Admin Architecture</h4>
                     <ul class="space-y-2 text-sm text-gray-600">
@@ -273,7 +256,6 @@
                         <li><i class="fa-solid fa-check text-brand-600 mr-2"></i>Task Scheduling</li>
                     </ul>
                 </div>
-                <!-- Communications -->
                 <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100" data-aos="zoom-in" data-aos-delay="400">
                     <h4 class="font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">Client Support</h4>
                     <ul class="space-y-2 text-sm text-gray-600">
@@ -285,7 +267,6 @@
                 </div>
             </div>
 
-            <!-- Detailed Technical Tools Stack Grid -->
             <div class="border border-gray-100 shadow-sm rounded-3xl p-8 bg-gray-50" data-aos="fade-up">
                 <h3 class="text-xl font-bold text-gray-900 mb-6 text-center">Verified Infrastructure & Softwares Stack</h3>
                 <div class="flex flex-wrap justify-center gap-3">
@@ -310,7 +291,6 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
@@ -319,10 +299,8 @@
                 <div class="h-1 w-12 bg-brand-600 mx-auto mt-4 rounded"></div>
             </div>
 
-            <!-- 7 Live Projects Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <!-- Project 1 -->
                 <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between" data-aos="fade-up">
                     <div>
                         <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-globe"></i></div>
@@ -333,7 +311,6 @@
                     <a href="https://c-familia.online/" target="_blank" class="text-sm font-semibold text-brand-600 hover:text-brand-700 flex items-center">Visit Platform <i class="fa-solid fa-arrow-right ml-1.5 text-xs"></i></a>
                 </div>
 
-                <!-- Project 2 -->
                 <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
                     <div>
                         <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-trowel-bricks"></i></div>
@@ -344,7 +321,6 @@
                     <a href="http://sgm-construction.site/" target="_blank" class="text-sm font-semibold text-brand-600 hover:text-brand-700 flex items-center">Visit Platform <i class="fa-solid fa-arrow-right ml-1.5 text-xs"></i></a>
                 </div>
 
-                <!-- Project 3 -->
                 <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
                     <div>
                         <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-church"></i></div>
@@ -355,7 +331,6 @@
                     <a href="https://parish-chruch.online/" target="_blank" class="text-sm font-semibold text-brand-600 hover:text-brand-700 flex items-center">Visit Platform <i class="fa-solid fa-arrow-right ml-1.5 text-xs"></i></a>
                 </div>
 
-                <!-- Project 4 -->
                 <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
                     <div>
                         <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-book-bookmark"></i></div>
@@ -366,7 +341,6 @@
                     <a href="https://lmis.site/" target="_blank" class="text-sm font-semibold text-brand-600 hover:text-brand-700 flex items-center">Visit Platform <i class="fa-solid fa-arrow-right ml-1.5 text-xs"></i></a>
                 </div>
 
-                <!-- Project 5 -->
                 <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="400">
                     <div>
                         <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-umbrella-beach"></i></div>
@@ -377,7 +351,6 @@
                     <a href="https://mabanag-spring-resort.site/" target="_blank" class="text-sm font-semibold text-brand-600 hover:text-brand-700 flex items-center">Visit Platform <i class="fa-solid fa-arrow-right ml-1.5 text-xs"></i></a>
                 </div>
 
-                <!-- Project 6 -->
                 <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="500">
                     <div>
                         <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-water"></i></div>
@@ -388,7 +361,6 @@
                     <a href="https://www.generalao-resort.online/" target="_blank" class="text-sm font-semibold text-brand-600 hover:text-brand-700 flex items-center">Visit Platform <i class="fa-solid fa-arrow-right ml-1.5 text-xs"></i></a>
                 </div>
 
-                <!-- Project 7 -->
                 <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="600">
                     <div>
                         <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-cat"></i></div>
@@ -409,7 +381,6 @@
         </div>
     </section>
 
-    <!-- Contact Form Section -->
     <section id="contact" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
@@ -446,11 +417,8 @@
                     </div>
                 </div>
 
-                <!-- Functional Form Submission targeting your Gmail via Web3Forms API -->
                 <form class="md:col-span-3 p-8 sm:p-12 space-y-6 bg-white" action="https://api.web3forms.com/submit" method="POST">
-                    <!-- Secure Token Delivery to rhondelpagobo19@gmail.com -->
                     <input type="hidden" name="access_key" value="0970725a-4cb4-4db2-959c-7033ea339178">
-                    <!-- Optional Configuration: Redirect back after submit -->
                     <input type="hidden" name="from_name" value="Portfolio Visitor">
                     <input type="hidden" name="subject" value="New Technical VA Portfolio Lead">
 
@@ -473,7 +441,6 @@
                         <textarea rows="4" name="message" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-600 transition-all resize-none"></textarea>
                     </div>
                     
-                    <!-- HoneyPot Anti-Spam protection field hidden from view -->
                     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
                     <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 px-6 rounded-xl transition-all shadow-md text-sm">Send Secure Message</button>
@@ -482,14 +449,34 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <div id="cv-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] hidden items-center justify-center p-0 sm:p-4">
+        <div class="bg-white w-full h-full sm:rounded-2xl shadow-2xl flex flex-col overflow-hidden max-w-6xl sm:h-[90vh]">
+            <div class="bg-gray-900 text-white px-6 py-4 flex items-center justify-between shadow-md">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-file-pdf text-red-500 text-lg"></i>
+                    <span class="font-semibold text-sm tracking-wide truncate">Rhondel_Pagobo_CV.pdf</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <a href="Rhondel_Pagobo_CV.pdf" download="Rhondel_Pagobo_CV.pdf" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all shadow-sm">
+                        <i class="fa-solid fa-download"></i> Download CV
+                    </a>
+                    <button id="close-modal-btn" class="text-gray-400 hover:text-white transition-colors text-xl p-1" aria-label="Close Preview">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="flex-1 bg-gray-100 relative">
+                <iframe src="Rhondel_Pagobo_CV.pdf" class="w-full h-full border-none"></iframe>
+            </div>
+        </div>
+    </div>
+
     <footer class="bg-gray-900 text-gray-400 py-8 border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
             <p>&copy; 2026 Rhondel Pagobo</p>
         </div>
     </footer>
 
-    <!-- AOS Animation Library JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
@@ -523,6 +510,40 @@
                 menuIcon.classList.remove('fa-xmark');
                 menuIcon.classList.add('fa-bars');
             });
+        });
+
+        // CV Modal Event Handler Logic
+        const viewCvBtn = document.getElementById('view-cv-btn');
+        const cvModal = document.getElementById('cv-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+
+        const openModal = () => {
+            cvModal.classList.remove('hidden');
+            cvModal.classList.add('flex');
+            document.body.classList.add('overflow-hidden');
+        };
+
+        const closeModal = () => {
+            cvModal.classList.add('hidden');
+            cvModal.classList.remove('flex');
+            document.body.classList.remove('overflow-hidden');
+        };
+
+        viewCvBtn.addEventListener('click', openModal);
+        closeModalBtn.addEventListener('click', closeModal);
+
+        // Close modal when hitting background overlay wrapper area
+        cvModal.addEventListener('click', (e) => {
+            if (e.target === cvModal) {
+                closeModal();
+            }
+        });
+
+        // Close modal when pressing the Escape Key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !cvModal.classList.contains('hidden')) {
+                closeModal();
+            }
         });
     </script>
 </body>
