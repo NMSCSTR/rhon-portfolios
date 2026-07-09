@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accenture Entry-Level Tech Interview Master Study Guide</title>
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #a100ff;
+            --primary-light: #f5e6ff;
+            --primary-dark: #7a00cc;
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --card-bg: #ffffff;
+            --border: #cbd5e1;
+            --code-bg: #0f172a;
+            --keyword-bg: #fef08a;
+            --keyword-text: #854d0e;
+            --sidebar-bg: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --header-gradient: linear-gradient(135deg, #a100ff, #7a00cc);
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --text: #f1f5f9;
+            --text-light: #94a3b8;
+            --card-bg: #1e293b;
+            --border: #334155;
+            --code-bg: #020617;
+            --keyword-bg: #451a03;
+            --keyword-text: #fef08a;
+            --sidebar-bg: #1e293b;
+            --primary-light: #3b0764;
+            --primary-dark: #d8b4fe;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --header-gradient: linear-gradient(135deg, #1e1b4b, #311042);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 1.05rem;
+            color: var(--text);
+            background-color: var(--bg);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Layout Structure */
+        .app-container {
+            display: flex;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Sidebar Styling */
+        aside {
+            width: 320px;
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid var(--border);
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .sidebar-brand {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        /* Theme Toggle Button Only */
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.05);
+        }
+
+        [data-theme="dark"] .theme-toggle {
+            background-color: #334155;
+            color: #fef08a;
+        }
+
+        .nav-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-light);
+            margin-top: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: block;
+            padding: 10px 14px;
+            border-radius: 8px;
+            background: transparent;
+            border: 1px solid transparent;
+        }
+
+        .nav-links a:hover {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-color: rgba(161, 0, 255, 0.15);
+            transform: translateX(4px);
+        }
+
+        /* Main Content Container */
+        main {
+            flex: 1;
+            margin-left: 320px;
+            padding: 40px;
+            width: calc(100% - 320px);
+        }
+
+        header {
+            background: var(--header-gradient);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.2;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            color: #f1f5f9;
+        }
+
+        .section-card {
+            background: var(--card-bg);
+            padding: 45px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            scroll-margin-top: 40px;
+        }
+
+        h2 {
+            color: var(--primary);
+            padding-bottom: 12px;
+            margin-bottom: 30px;
+            font-size: 2.1rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        [data-theme="dark"] h2 {
+            color: var(--primary-dark);
+        }
+
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 36px;
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        h3 {
+            margin-top: 35px;
+            margin-bottom: 15px;
+            color: var(--text);
+            font-size: 1.45rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text);
+            font-size: 1.08rem;
+        }
+
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 25px;
+            color: var(--text);
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .keyword {
+            background-color: var(--keyword-bg);
+            color: var(--keyword-text);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: Consolas, Monaco, monospace;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--primary);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        code {
+            font-family: Consolas, Monaco, monospace;
+            background: rgba(148, 163, 184, 0.15);
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: var(--text);
+        }
+
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        /* Interactive Flashcards */
+        .flashcard {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .flashcard-question {
+            background: var(--card-bg);
+            padding: 20px 24px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .flashcard-question::after {
+            content: 'Reveal Answer 👇';
+            font-size: 0.8rem;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        [data-theme="dark"] .flashcard-question::after {
+            background: #311042;
+            color: #d8b4fe;
+        }
+
+        .flashcard-answer {
+            padding: 24px;
+            opacity: 0.1;
+            filter: blur(6px);
+            transition: all 0.3s ease;
+            user-select: none;
+            background: var(--bg);
+        }
+
+        .flashcard:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .flashcard:hover .flashcard-answer {
+            opacity: 1;
+            filter: blur(0);
+            user-select: text;
+            background: var(--card-bg);
+        }
+
+        .flashcard:hover .flashcard-question::after {
+            content: 'Active Study Mode';
+            background: #bbf7d0;
+            color: #166534;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        th, td {
+            border: 1px solid var(--border);
+            padding: 16px 20px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-light);
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        [data-theme="dark"] th {
+            background-color: #311042;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(148, 163, 184, 0.05);
+        }
+
+        /* Mobile Menu Indicator */
+        .mobile-nav-toggle {
+            display: none;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1100px) {
+            aside {
+                width: 260px;
+            }
+            main {
+                margin-left: 260px;
+                width: calc(100% - 260px);
+                padding: 30px;
+            }
+            header h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .app-container {
+                flex-direction: column;
+            }
+            aside {
+                position: relative;
+                width: 100%;
+                bottom: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                padding: 20px;
+                height: auto;
+            }
+            main {
+                margin-left: 0;
+                width: 100%;
+                padding: 20px;
+            }
+            header {
+                padding: 30px 20px;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .section-card {
+                padding: 25px;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            .flashcard-question {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    <!-- Left Navigation Sidebar -->
+    <aside>
+        <div class="sidebar-header">
+            <span class="sidebar-brand">Accenture Study</span>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+                <!-- SVG Moon Icon Default -->
+                <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="nav-title">Table of Contents</div>
+        <ul class="nav-links">
+            <li><a href="#part1">Part 1: HR Interview</a></li>
+            <li><a href="#part2">Part 2: Programming Fundamentals</a></li>
+            <li><a href="#part3">Part 3: OOP Concepts</a></li>
+            <li><a href="#part4">Part 4: SQL Masterclass</a></li>
+            <li><a href="#part5">Part 5: PHP Fundamentals & Web</a></li>
+            <li><a href="#part6">Part 6: REST API Concepts</a></li>
+            <li><a href="#part7">Part 7: MVC Architecture</a></li>
+            <li><a href="#part8">Part 8: Git & Version Control</a></li>
+            <li><a href="#part9">Part 9: HTML, CSS & JavaScript</a></li>
+            <li><a href="#part10">Part 10: Data Structures</a></li>
+            <li><a href="#part11">Part 11: Algorithms & Complexity</a></li>
+            <li><a href="#part12">Part 12: Laravel Framework Core</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content Stream Container -->
+    <main>
+        <header>
+            <h1>Accenture Entry-Level Tech Track Study Guide</h1>
+            <p>Active Recall Framework & Master System Guide for Walk-In & Structured Engineering Applications</p>
+        </header>
+
+        <!-- PART 1 -->
+        <div id="part1" class="section-card">
+            <h2>Part 1 – HR Interview Focus</h2>
+            <p>Hover or tap over cards to test active recall. Keywords are highlighted to anchor memorization.</p>
+            
+            <div class="flashcard">
+                <div class="flashcard-question">Tell me about yourself</div>
+                <div class="flashcard-answer">
+                    <p>"Good day. I am an <span class="keyword">Information Technology graduate</span> and a current <span class="keyword">Master’s student in IT</span>. I have hands-on experience building simple web applications through freelancing, and I also worked as an <span class="keyword">IT Instructor</span> and a mobile teacher. My background has given me a strong foundation in programming and problem-solving. I am looking for an entry-level technology role where I can apply what I know, undergo <span class="keyword">professional training</span>, and grow my career long-term."</p>
+                </div>
+            </div>
+
+            <div class="flashcard">
+                <div class="flashcard-question">Why Accenture?</div>
+                <div class="flashcard-answer">
+                    <p>"I want to join Accenture because it is a <span class="keyword">global leader in technology</span> and known for its <span class="keyword">excellent corporate training</span>. As someone eager to learn and adapt, I know that your <span class="keyword">paid bootcamps and certifications</span> will help me master enterprise-level tools and programming languages. I want to build a long-term technical career in a company that values continuous growth."</p>
+                </div>
+            </div>
+
+            <div class="flashcard">
+                <div class="flashcard-question">Why should we hire you?</div>
+                <div class="flashcard-answer">
+                    <p>"You should hire me because I have a solid mix of <span class="keyword">technical knowledge</span> and <span class="keyword">soft skills</span>. I already understand programming fundamentals and databases from my degree, my Master's studies, and my freelance work. At the same time, my experience as an instructor means I have <span class="keyword">strong communication skills</span>, patience, and the ability to work well with different types of people."</p>
+                </div>
+            </div>
+
+            <div class="flashcard">
+                <div class="flashcard-question">Strengths and weaknesses</div>
+                <div class="flashcard-answer">
+                    <p>"My main strength is my <span class="keyword">adaptability</span> and love for learning. My weakness is that I sometimes tend to overthink a coding problem when I get stuck. To handle this, I have learned to <span class="keyword">set a time limit</span>. If I cannot figure out the solution on my own after a while, I use AI as a tool to help me <span class="keyword">understand the logic</span>, look at different angles, and learn the right approach. I never use it to blindly copy answers, but to improve my understanding so I can work more effectively."</p>
+                </div>
+            </div>
+
+            <div class="flashcard">
+                <div class="flashcard-question">Conflict resolution</div>
+                <div class="flashcard-answer">
+                    <p>"When there is a misunderstanding, I always talk to the person <span class="keyword">directly and calmly</span> to understand their side. When I was teaching, we sometimes had disagreements on scheduling. I always <span class="keyword">listen first, find common ground</span>, and focus on the solution rather than the argument. If a problem is purely technical, I like to use AI to explore different perspectives or find neutral, standard ways to solve the system issue together."</p>
+                </div>
+            </div>
+
+            <div class="flashcard">
+                <div class="flashcard-question">Working under pressure</div>
+                <div class="flashcard-answer">
+                    <p>"I handle pressure by staying organized and <span class="keyword">breaking big tasks into smaller, manageable steps</span>. When I was balancing teaching and my own graduate studies, things got overwhelming. I listed down priorities and focused on one thing at a time. If I encounter a difficult technical blocker under tight deadlines, I use AI to help me quickly understand the problem and explore options so I can <span class="keyword">fix it efficiently without wasting time</span>."</p>
+                </div>
+            </div>
+
+            <div class="flashcard">
+                <div class="flashcard-question">Shifting schedule & Relocation</div>
+                <div class="flashcard-answer">
+                    <p>"Yes, I am fully aware that tech roles require flexibility. I am <span class="keyword">completely fine with working shifting schedules</span>, night shifts, or holidays depending on the project. I am also <span class="keyword">very willing to relocate to Manila</span>. I know this position is based there, and I am fully prepared to move once hired."</p>
+                </div>
+            </div>
+
+            <div class="flashcard">
+                <div class="flashcard-question">Salary expectations</div>
+                <div class="flashcard-answer">
+                    <p>"Based on my research for entry-level technology positions here at Accenture, my expected salary is between <span class="keyword">₱23,000 and ₱25,000</span>. However, I am highly flexible and my main priority is the training, growth, and long-term career opportunities you offer."</p>
+                </div>
+            </div>
+
+            <div class="flashcard">
+                <div class="flashcard-question">Why shift from teaching to corporate?</div>
+                <div class="flashcard-answer">
+                    <p>"I truly enjoyed teaching because it allowed me to share knowledge and improve my communication skills. However, my true passion has always been <span class="keyword">software development</span> and hands-on technology work. I chose to apply here because I want to focus <span class="keyword">100% of my energy on building and maintaining technical systems</span> within an industry leader like Accenture."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PART 2 -->
+        <div id="part2" class="section-card">
+            <h2>Part 2 – Programming Fundamentals</h2>
+            <p>Core building blocks verified using native PHP engine setups.</p>
+
+            <h3>1. Variables & Data Types</h3>
+            <p>Variables hold shifting information. In PHP, they declare via the <code>$</code> operator. PHP is <span class="keyword">loosely typed</span>.</p>
+<pre>&lt;?php
+$name = "Rhondel";  // String
+$age = 25;          // Integer
+$pi = 3.1416;       // Float/Double
+$is_dev = true;     // Boolean
+?&gt;</pre>
+
+            <h3>2. Operators & Comparisons</h3>
+<pre>&lt;?php
+$sum = 10 + 5;           // Arithmetic operator
+$is_equal = (5 == "5");  // true (compares only value)
+$is_strict = (5 === "5"); // false (compares value AND data type)
+?&gt;</pre>
+
+            <h3>3. Control Structures</h3>
+<pre>&lt;?php
+// If-else conditional decision logic
+if ($age >= 18) {
+    echo "Adult";
+} else {
+    echo "Minor";
+}
+
+// Repeating iteration loops
+for ($i = 0; $i < 3; $i++) {
+    echo $i; // Outputs 012
+}
+?&gt;</pre>
+
+            <h3>4. Scope & Pass By Value vs Reference</h3>
+<pre>&lt;?php
+// Pass By Value (Default copy instantiation)
+function addValue($num) { $num += 5; }
+$x = 10; addValue($x); // $x is still 10
+
+// Pass By Reference (Uses & pointer address modification)
+function addRef(&amp;$num) { $num += 5; }
+$y = 10; addRef($y); // $y becomes 15
+?&gt;</pre>
+
+            <h3>5. Recursion</h3>
+            <p>Recursion is a process where a function executions calls to itself. It requires a rigid <span class="keyword">base case condition</span> to avoid runtime execution stack overflows.</p>
+<pre>&lt;?php
+function countDown($n) {
+    if ($n &lt;= 0) { echo "Stop!"; return; } // Base Case
+    echo $n . " ";
+    countDown($n - 1); // Recursive Call
+}
+countDown(3); // Outputs: 3 2 1 Stop!
+?&gt;</pre>
+
+            <div class="flashcard">
+                <div class="flashcard-question">Technical Strategy: What if you get stuck on a coding test or algorithm logic?</div>
+                <div class="flashcard-answer">
+                    <p>"When I am stuck on a tough coding problem, I first <span class="keyword">break down the logic on paper</span>. If I still cannot figure out the solution on my own, I use AI as a tool to help me understand the problem, explore alternative logic paths, and learn the optimal approach. I make sure never to use AI to cheat or blindly copy code; I use it purely to <span class="keyword">improve my understanding</span> and work more effectively."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PART 3 -->
+        <div id="part3" class="section-card">
+            <h2>Part 3 – Object-Oriented Programming (OOP)</h2>
+            <p>OOP is a development approach mapping real-world components to architectural code structures.</p>
+
+            <h3>Core Concepts Defined</h3>
+            <ul>
+                <li><strong>Class:</strong> The program design template or structural <span class="keyword">blueprint</span>.</li>
+                <li><strong>Object:</strong> A concrete single <span class="keyword">instance</span> of a class loaded into active memory.</li>
+                <li><strong>Encapsulation:</strong> Protecting inner data states using <span class="keyword">private/protected visibility fields</span>, forcing access via public getter/setter methods.</li>
+                <li><strong>Inheritance:</strong> Reusing baseline code structures by letting child classes <span class="keyword">extend</span> a parent class.</li>
+                <li><strong>Polymorphism:</strong> Allowing distinct classes to use identical method names while writing unique functional outputs (<span class="keyword">many forms</span>).</li>
+                <li><strong>Abstraction:</strong> Exposing critical interface layouts while <span class="keyword">hiding deep backend structural mechanics</span>.</li>
+            </ul>
+
+            <h3>Code Implementation Blueprint</h3>
+<pre>&lt;?php
+// Parent Abstract Class (Abstraction)
+abstract class Animal {
+    protected $name; // Encapsulation
+
+    public function __construct($name) { $this->name = $name; }
+    abstract public function speak(); // Forces child customization
+}
+
+// Child Inheritance execution
+class Dog extends Animal {
+    public function speak() {
+        return $this->name . " says: Bark!"; // Polymorphism implementation
+    }
+}
+
+$pet = new Dog("Buddy"); // Object instantiation
+echo $pet->speak(); // Outputs: Buddy says: Bark!
+?&gt;</pre>
+
+            <div class="flashcard">
+                <div class="flashcard-question">What is the difference between Interfaces and Abstract Classes?</div>
+                <div class="flashcard-answer">
+                    <p><strong>Interfaces</strong> function as a rigid behavior contract containing <span class="keyword">only empty structural definitions</span>; a class can implement several interfaces. <strong>Abstract Classes</strong> act as structural parent baselines that mix both normal built code methods and empty templates; a class can inherit from <span class="keyword">only one parent</span>.</p>
+                </div>
+            </div>
+
+            <h3>SOLID Principles</h3>
+            <ul>
+                <li><strong>S - Single Responsibility:</strong> A single class does exactly <span class="keyword">one targeted job</span>.</li>
+                <li><strong>O - Open/Closed:</strong> Programs are open to feature scaling but <span class="keyword">closed to core modifications</span>.</li>
+                <li><strong>L - Liskov Substitution:</strong> Child structures must seamlessly <span class="keyword">replace parent positions</span> without breaking application workflows.</li>
+                <li><strong>I - Interface Segregation:</strong> Splitting massive, bulky contracts into <span class="keyword">tiny targeted interfaces</span>.</li>
+                <li><strong>D - Dependency Inversion:</strong> Code structures should look up <span class="keyword">abstract templates</span> rather than concrete classes.</li>
+            </ul>
+        </div>
+
+        <!-- PART 4 -->
+        <div id="part4" class="section-card">
+            <h2>Part 4 – SQL Masterclass</h2>
+            <p>Relational databases require clear structural queries to store, access, and manage information sets.</p>
+
+            <h3>1. Query Structuring Clauses</h3>
+<pre>-- Retrieving and sorting filtered table records
+SELECT employee_id, salary 
+FROM employees 
+WHERE salary >= 25000 
+ORDER BY salary DESC;</pre>
+
+            <h3>2. Aggregate Calculations & Aggregation Grouping</h3>
+<pre>-- Aggregating logs and testing groups using HAVING
+SELECT department_id, COUNT(id) AS staff_count, AVG(salary) AS avg_income
+FROM employees
+GROUP BY department_id
+HAVING AVG(salary) > 30000;</pre>
+
+            <h3>3. Structural Table Joins</h3>
+            <ul>
+                <li><strong>INNER JOIN:</strong> Extracts only overlapping records <span class="keyword">present in both tables</span>.</li>
+                <li><strong>LEFT JOIN:</strong> Pulls all rows out of the left table alongside matching rows out of the right side table. Missing values display as <span class="keyword">NULL</span>.</li>
+            </ul>
+<pre>SELECT users.name, orders.order_id 
+FROM users 
+LEFT JOIN orders ON users.id = orders.user_id;</pre>
+
+            <h3>4. Database Normalization Models</h3>
+            <ul>
+                <li><strong>1NF:</strong> Table data cells must be atomic, with only <span class="keyword">single individual data elements</span>.</li>
+                <li><strong>2NF:</strong> Achieves 1NF, and eliminates partial dependencies where non-key columns rely on only a piece of a <span class="keyword">composite key</span>.</li>
+                <li><strong>3NF:</strong> Achieves 2NF, and completely eliminates <span class="keyword">transitive column dependencies</span> (non-key columns relying on other non-key columns).</li>
+            </ul>
+
+            <h3>5. Transaction Control Execution</h3>
+<pre>START TRANSACTION;
+UPDATE accounts SET balance = balance - 1000 WHERE id = 1;
+UPDATE accounts SET balance = balance + 1000 WHERE id = 2;
+COMMIT; -- Complete operations cleanly if safe
+-- ROLLBACK; -- Revert everything back if error strikes</pre>
+
+            <div class="flashcard">
+                <div class="flashcard-question">What do you do if you face a highly complex SQL query you cannot design?</div>
+                <div class="flashcard-answer">
+                    <p>"If I run into a highly complex query or database problem, I start by <span class="keyword">mapping out the data relationships manually on paper</span>. If I am working independently and get stuck, I use AI as a tool to help me dissect the problem, explore optimized structural options, and learn the correct syntax approach. I use it to <span class="keyword">fully understand the execution plan</span> so I can build reliable, high-performing database queries."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PART 5 -->
+        <div id="part5" class="section-card">
+            <h2>Part 5 – PHP Fundamentals & Web Application States</h2>
+            <p>PHP manages web applications by bridging client requests to server-side business workflows.</p>
+
+            <h3>1. Array Storage Paradigms</h3>
+<pre>&lt;?php
+// Associative structures store data using named string keys
+$profile = ["name" => "Rhondel", "role" => "Developer"];
+echo $profile["name"];
+?&gt;</pre>
+
+            <div class="flashcard">
+                <div class="flashcard-question">State Persistence: Sessions vs Cookies</div>
+                <div class="flashcard-answer">
+                    <p><strong>Session:</strong> Securely locks down state information right <span class="keyword">on the application web server</span> using temporary user access keys. <strong>Cookie:</strong> Pushes textual identification keys inside the user's <span class="keyword">local browser memory</span> tracking configuration timelines.</p>
+                </div>
+            </div>
+
+            <h3>3. Injection Defense & Prepared Statements via PDO</h3>
+            <p>To defend backend architectures against <span class="keyword">SQL Injection</span>, never mix direct text variables with database statement instructions.</p>
+<pre>&lt;?php
+$pdo = new PDO("mysql:host=localhost;dbname=tala_store", "root", "");
+// Prepared structures isolate variables from executable commands safely
+$stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
+$stmt->execute(['email' => $userInputEmail]);
+$user = $stmt->fetch();
+?&gt;</pre>
+
+            <h3>4. General Hashing Defenses</h3>
+<pre>&lt;?php
+// Secure hashing engine using native strong BCrypt encryption standards
+$secureHash = password_hash("password123", PASSWORD_BCRYPT);
+
+// Login state confirmation
+if (password_verify("password123", $secureHash)) { /* Authorized */ }
+?&gt;</pre>
+        </div>
+
+        <!-- PART 6 -->
+        <div id="part6" class="section-card">
+            <h2>Part 6 – REST API Concepts</h2>
+            <p>REST APIs act as standardized communication endpoints between isolated applications or architectural components.</p>
+
+            <h3>1. HTTP Request Methods</h3>
+            <table>
+                <tr><th>Verb</th><th>Functional Focus</th><th>Idempotent?</th></tr>
+                <tr><td><strong>GET</strong></td><td>Reads or retrieves resources without changing system states.</td><td><span class="keyword">Yes</span></td></tr>
+                <tr><td><strong>POST</strong></td><td>Submits data to create a completely new record.</td><td><span class="keyword">No</span></td></tr>
+                <tr><td><strong>PUT</strong></td><td>Replaces an entire target resource with a complete updated data set.</td><td><span class="keyword">Yes</span></td></tr>
+                <tr><td><strong>PATCH</strong></td><td>Alters specific fields inside a record while leaving the rest untouched.</td><td><span class="keyword">Yes</span></td></tr>
+                <tr><td><strong>DELETE</strong></td><td>Removes a specific database record from the system.</td><td><span class="keyword">Yes</span></td></tr>
+            </table>
+
+            <h3>2. Critical Status Feedback Signals</h3>
+            <ul>
+                <li><strong>200 OK:</strong> Request succeeded with data.</li>
+                <li><strong>201 Created:</strong> Request succeeded and a record was added.</li>
+                <li><strong>400 Bad Request:</strong> Client sent bad data or missing parameters.</li>
+                <li><strong>401 Unauthorized:</strong> Missing identity tokens or needs active login state.</li>
+                <li><strong>403 Forbidden:</strong> Identity known, but user lacks necessary authorization permissions.</li>
+                <li><strong>404 Not Found:</strong> The requested endpoint or resource does not exist.</li>
+                <li><strong>500 Server Error:</strong> The application server encountered an internal crash.</li>
+            </ul>
+
+            <div class="flashcard">
+                <div class="flashcard-question">Architecture Tools: REST vs SOAP</div>
+                <div class="flashcard-answer">
+                    <p><strong>REST</strong> is an architectural approach built around flexible data payloads like <span class="keyword">JSON</span>, prioritizing execution speed and efficiency. <strong>SOAP</strong> is a highly strict messaging protocol running exclusively on <span class="keyword">XML</span>, heavily utilized by large enterprise networks due to its rigid built-in security features.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PART 7 -->
+        <div id="part7" class="section-card">
+            <h2>Part 7 – MVC Architecture</h2>
+            <p>MVC isolates application concerns to make code modular, highly maintainable, and scalable.</p>
+
+            <h3>The Architectural Components</h3>
+            <ul>
+                <li><strong>Model:</strong> Directs the application data structures, manages business rules, and interfaces with the <span class="keyword">database</span>.</li>
+                <li><strong>View:</strong> Formats and displays the interface design onto the user's screen (<span class="keyword">HTML/Blade templates</span>).</li>
+                <li><strong>Controller:</strong> Functions as the operational processor, translating incoming client inputs into database directions and updating the visual view (<span class="keyword">the brain</span>).</li>
+            </ul>
+
+            <h3>Laravel Core Lifecycle Flow</h3>
+            <p style="background: rgba(148, 163, 184, 0.12); padding: 16px; border-radius: 8px; font-size: 0.95rem; font-weight: 500; text-align: center;">
+                User Request &rarr; <code>public/index.php</code> Entry &rarr; Middleware Filters &rarr; Route Mapping &rarr; Controller Logic Execution &rarr; Model Database Call &rarr; Blade Template Generation &rarr; Client View Response.
+            </p>
+
+            <div class="flashcard">
+                <div class="flashcard-question">What is a "Fat Controller" anomaly?</div>
+                <div class="flashcard-answer">
+                    <p>"A fat controller happens when you pack too much database logic or calculations inside a controller method. We avoid this by keeping controllers thin, meaning they should <span class="keyword">only delegate tasks</span>. Complex business logic should be pushed down into the <span class="keyword">Model or custom Service layers</span>."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PART 8 -->
+        <div id="part8" class="section-card">
+            <h2>Part 8 – Git & Version Control Operations</h2>
+            <p>Git tracks code history across local files, protecting code bases from data loss during team collaboration phases.</p>
+
+            <h3>1. Essential Terminal Commands</h3>
+            <ul>
+                <li><code>git init</code>: Initializes a brand new local repository.</li>
+                <li><code>git status</code>: Inspects current project modifications and tracking state.</li>
+                <li><code>git add .</code>: Stages all active changes for tracking.</li>
+                <li><code>git commit -m "msg"</code>: Saves the staged snapshot into the local history log.</li>
+                <li><code>git checkout -b branch_name</code>: Spreads out a new feature development path and switches to it.</li>
+                <li><code>git pull origin main</code>: Fetches the newest updates from the remote cloud repository and merges them into your active files right away.</li>
+                <li><code>git push origin branch_name</code>: Uploads local branch changes to GitHub.</li>
+            </ul>
+
+            <h3>2. Resolving Merge Conflict Errors</h3>
+            <p>Merge conflicts occur when two developers write changes to the <span class="keyword">exact same line of code</span> within a file, and Git cannot determine which one to keep automatically.</p>
+<pre>// Open the conflicting file in your text editor and look for Git conflict markers:
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+echo "Keep my local design changes";
+=======
+echo "Incoming remote system update";
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; main
+// Step: Delete the code markers, select the correct code logic, then save, stage, and commit the fix.</pre>
+        </div>
+
+        <!-- PART 9 -->
+        <div id="part9" class="section-card">
+            <h2>Part 9 – HTML, CSS & JavaScript UI Development</h2>
+            <p>Front-end principles ensure interfaces are structurally sound, responsive across devices, and dynamically interactive.</p>
+
+            <h3>1. Structural Semantics & Accessibility</h3>
+            <p>Semantic layouts utilize tags like <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, and <code>&lt;nav&gt;</code> instead of plain layout blocks. This improves <span class="keyword">SEO layout parsing</span> and assists accessibility screen readers.</p>
+
+            <h3>2. CSS Grid & Responsive Media Rules</h3>
+<pre>/* Multi-column Grid setup that collapses into a single column layout on smaller viewports */
+.grid-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+@media (max-width: 768px) {
+    .grid-box { grid-template-columns: 1fr; }
+}</pre>
+
+            <h3>3. Asynchronous JavaScript & Fetch Execution</h3>
+<pre>// Utilizing modern ES6 Async/Await standards to fetch data cleanly
+async function fetchSystemData() {
+    try {
+        let response = await fetch('https://api.tala.store/products');
+        if (!response.ok) throw new Error("Endpoint connection error");
+        let products = await response.json();
+        
+        // Dynamic DOM Injection
+        document.getElementById('list').innerHTML = `&lt;p&gt;${products[0].name}&lt;/p&gt;`;
+    } catch (err) {
+        console.error("API Fetch operational failure:", err);
+    }
+}</pre>
+        </div>
+
+        <!-- PART 10 -->
+        <div id="part10" class="section-card">
+            <h2>Part 10 – Data Structures</h2>
+            <p>Data structures organize machine data collections to ensure system execution memory remains clean and performant.</p>
+
+            <h3>Core Implementations</h3>
+            <ul>
+                <li><strong>Arrays:</strong> Sequential memory slots holding values accessible via automated index locations.</li>
+                <li><strong>Linked Lists:</strong> Elements separated across system memory links, referencing each other using structural <span class="keyword">node pointers</span>.</li>
+                <li><strong>Stack (LIFO):</strong> Sequential data queue where items enter and exit through the same top slot—<span class="keyword">Last In, First Out</span>.</li>
+                <li><strong>Queue (FIFO):</strong> Standard line management system where components enter through the back and leave through the front—<span class="keyword">First In, First Out</span>.</li>
+                <li><strong>Hash Table:</strong> Maps specific data tracking strings to targeted values using <span class="keyword">hashing logic</span> for near-instant access.</li>
+                <li><strong>Binary Search Tree (BST):</strong> Sorted hierarchical nodes where left paths carry smaller numbers and right values hold larger scales.</li>
+            </ul>
+        </div>
+
+        <!-- PART 11 -->
+        <div id="part11" class="section-card">
+            <h2>Part 11 – Algorithms & Big-O Complexity</h2>
+            <p>Algorithms execute logical tasks, evaluated using Big-O notation to track time and space scalability scales.</p>
+
+            <h3>1. Searching Operations</h3>
+            <ul>
+                <li><strong>Linear Search (O(n) Complexity):</strong> Scans through every record in an unorganized array sequentially.</li>
+                <li><strong>Binary Search (O(log n) Complexity):</strong> Constantly cuts a sorted data list in half to find a specific key. <span class="keyword">Requires pre-sorted inputs</span>.</li>
+            </ul>
+
+            <h3>2. Core Performance Complexities</h3>
+            <ul>
+                <li><strong>O(1) [Constant Time]:</strong> Execution speed remains completely independent of data input volume.</li>
+                <li><strong>O(n) [Linear Time]:</strong> Execution runtime scales in a direct straight line relative to the size of incoming data.</li>
+                <li><strong>O(n²) [Quadratic Time]:</strong> Performance drops sharply due to <span class="keyword">nested loops</span> running inside data logic sets.</li>
+            </ul>
+        </div>
+
+        <!-- PART 12 -->
+        <div id="part12" class="section-card">
+            <h2>Part 12 – Laravel Framework Core Master Class</h2>
+            <p>An enterprise-level overview of Laravel components, tools, and operational setups.</p>
+
+            <h3>1. Security Token Controls & APIs</h3>
+            <p>Laravel utilizes <span class="keyword">Sanctum</span> to deliver lightweight, secure, token-based API authentication states for single-page applications and mobile layers without bulky OAuth configurations.</p>
+
+            <h3>2. Database Schema Migrations & Testing Seeders</h3>
+            <ul>
+                <li><strong>Migrations:</strong> Code-driven table structural blueprints acting as <span class="keyword">version control tracking histories</span> for database alterations.</li>
+                <li><strong>Seeders & Factories:</strong> Scripts injected to populate tables with starting structural keys or bulk fake development data.</li>
+            </ul>
+
+            <h3>3. System Performance Optimizations: Jobs & Queues</h3>
+            <p>Time-consuming, heavy infrastructure tasks like system alert logs or image processing operations are dispatched into <span class="keyword">Background Jobs</span> and queued using Redis or local databases. This prevents application pages from hanging or running slowly for users.</p>
+
+            <h3>4. Production Server Hosting Deployments</h3>
+            <p>To deploy local applications to virtual private servers (like Hostinger VPS environments), you configure Nginx/Apache tracking blocks, isolate credentials inside secure <code>.env</code> configurations, provision active SSL encryptions via Let's Encrypt, and secure route caching through Artisan terminal commands:</p>
+<pre>php artisan config:cache
+php artisan route:cache
+php artisan migrate --force</pre>
+
+            <div class="flashcard">
+                <div class="flashcard-question">Closing Mindset: How do you explain your relationship with technical AI tools?</div>
+                <div class="flashcard-answer">
+                    <p>"If I encounter an environment configuration error, an obscure system bug, or a complex concept that I cannot resolve independently, I use AI as a tool to inspect the error log, clarify the underlying framework mechanics, and learn the correct engineering convention. I <span class="keyword">never use it to blindly copy fixes</span>—I use it to build up my problem-solving skills so I can handle similar challenges autonomously in the future."</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+            document.documentElement.removeAttribute('data-theme');
+            // Switch back to Moon Icon
+            themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            // Switch to Sun Icon
+            themeIcon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+        }
+    });
+</script>
+</body>
+</html>
